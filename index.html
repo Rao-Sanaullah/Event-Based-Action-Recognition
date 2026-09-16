@@ -304,41 +304,52 @@ Your browser does not support embedded video.
 
 <hr class="divider">
 
-<div class="container">
-    <div class="row ">
-      <div class="col-12">
-          <h3>Dataset Availability</h3>
-          <hr style="margin-top:0px">
-          <p class="text-justify" style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-		  
-			Event-Based Dataset (Original): <a href="https://github.com/DaniDeniz/DavisHandDataset-Events" target="_blank">Download Link</a> <br>
-			<p>Description: This dataset contains raw data captured by event-based cameras, providing high temporal resolution and asynchronous event streams. Suitable for initial experiments and raw data analysis.</p>
-			
-			Spike Train Dataset (Transformed): <a href="https://drive.google.com/file/d/1HSaJXqOdEdPiyT1OBn-XNn-RyHmnFD6y/view?usp=drive_link" target="_blank">Download Link</a> <br>
-			<p>Description: This dataset features the same information transformed into spike train format, optimized for use with SNNs. This format aligns with the time-based processing needs of SNNs and facilitates efficient learning and analysis.</p>
-          </p>
-      </div>
-    </div>
+<style>
+.resource-item{margin-bottom:22px}
+.resource-item:last-child{margin-bottom:0}
+.resource-item .res-title{font-weight:600;font-size:15px;color:var(--text);margin-bottom:4px}
+.resource-item a{color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+.resource-item a:hover{text-decoration:underline}
+.resource-item p{font-size:14px;color:var(--text2);margin-top:6px;line-height:1.7}
+.ref-list{list-style:none;counter-reset:ref-counter;padding:0;margin:0}
+.ref-list li{counter-increment:ref-counter;padding-left:34px;position:relative;margin-bottom:14px;font-size:14px;color:var(--text2);line-height:1.7}
+.ref-list li::before{content:"[" counter(ref-counter) "]";position:absolute;left:0;color:var(--text3);font-family:var(--mono);font-size:12px}
+.ref-list a{color:var(--accent);text-decoration:none}
+.ref-list a:hover{text-decoration:underline}
+</style>
+
+<hr class="divider">
+
+<section>
+<h2>Dataset Availability</h2>
+<p class="section-sub">Original event-based recordings, and the spike-train conversion used in earlier work</p>
+
+<div class="resource-item">
+<div class="res-title">Event-Based Dataset (Original)</div>
+<a href="https://github.com/DaniDeniz/DavisHandDataset-Events" target="_blank">Download &rarr;</a>
+<p>Raw recordings from event-based cameras, providing high temporal resolution and asynchronous event streams. Suitable for initial experiments and raw data analysis.</p>
 </div>
 
-
-
-
-
-<div class="container">
-    <div class="row ">
-      <div class="col-12">
-          <h3>References</h3>
-          <hr style="margin-top:0px; font-size: 0.1em; color: #808080;">
-			<p class="references">
-				[1]. Wan, J., Xia, M., Huang, Z., Tian, L., Zheng, X., Chang, V., ... & Wang, H. (2021). Event-based pedestrian detection using dynamic vision sensors. Electronics, 10(8), 888.
-				[2]. Rebecq, Henri, et al. (2019). "High speed and high dynamic range video with an event camera." <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i> 43.6: 1964-1980. 
-       			[3]. D. Deniz, C. Fermuller, E. Ros, M. Rodriguez-Alvarez, & F. Barranco. (2023) "Event-based Vision for Early Prediction of Manipulation Actions". <a href="https://arxiv.org/abs/2307.14332" target="_blank">arXiv preprint arXiv:2307.14332</a>.<br>
-				[4]. D. Deniz, E. Ros, C. Fermuller, & F. Barranco. (2023). "When Do Neuromorphic Sensors Outperform Cameras? Learning from Dynamic Features". In <i>2023 57th Annual Conference on Information Sciences and Systems (CISS)</i> (pp. 1-6). IEEE. <br><br>
-			</p>
-      </div>
-    </div>
+<div class="resource-item">
+<div class="res-title">Spike-Train Dataset (Transformed, E-MAD)</div>
+<a href="https://drive.google.com/file/d/1HSaJXqOdEdPiyT1OBn-XNn-RyHmnFD6y/view?usp=drive_link" target="_blank">Download &rarr;</a>
+<p>The original E-MAD recordings converted to spike-train format for use with spiking neural networks. This corresponds to the preliminary, smaller-scale experiment reported in this work; the main results reported above use a separate, larger dataset following the same conversion approach.</p>
 </div>
+</section>
+
+<hr class="divider">
+
+<section>
+<h2>References</h2>
+<p class="section-sub">Prior work this paper builds on and compares against</p>
+
+<ol class="ref-list">
+<li>Wan, J., Xia, M., Huang, Z., Tian, L., Zheng, X., Chang, V., et al. (2021). Event-based pedestrian detection using dynamic vision sensors. <i>Electronics</i>, 10(8), 888.</li>
+<li>Rebecq, H., et al. (2019). High speed and high dynamic range video with an event camera. <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, 43(6), 1964&ndash;1980.</li>
+<li>Deniz, D., Ferm&uuml;ller, C., Ros, E., Rodriguez-Alvarez, M., &amp; Barranco, F. (2023). Event-based vision for early prediction of manipulation actions. <a href="https://arxiv.org/abs/2307.14332" target="_blank">arXiv:2307.14332</a>.</li>
+<li>Deniz, D., Ros, E., Ferm&uuml;ller, C., &amp; Barranco, F. (2023). When do neuromorphic sensors outperform cameras? Learning from dynamic features. In <i>2023 57th Annual Conference on Information Sciences and Systems (CISS)</i> (pp. 1&ndash;6). IEEE.</li>
+</ol>
+</section>
 
 <hr class="divider">
 
