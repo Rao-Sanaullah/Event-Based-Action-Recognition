@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event-Based Object and Fine-Grained Action Recognition</title>
+
+<title>Event-Based Object and Action Recognition</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 body {
   font-family: 'Inter', sans-serif;
   background: #f8f9fc;
-  color: #333;
 }
 
-/* HERO */
 .hero {
   padding: 80px 20px;
   text-align: center;
@@ -25,36 +22,9 @@ body {
   color: white;
 }
 
-.hero h1 {
-  font-weight: 700;
-  font-size: 2.3rem;
-}
+.section { padding: 60px 0; }
+.section-title { font-weight: 700; margin-bottom: 20px; }
 
-.hero p {
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-/* BUTTON */
-.btn-custom {
-  background: white;
-  color: #1e3c72;
-  font-weight: 600;
-  border-radius: 30px;
-  padding: 10px 25px;
-}
-
-/* SECTIONS */
-.section {
-  padding: 60px 0;
-}
-
-.section-title {
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-/* CARDS */
 .card-custom {
   background: white;
   border-radius: 12px;
@@ -62,17 +32,16 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* MEDIA */
-img, video {
-  border-radius: 10px;
-  width: 100%;
-}
+img, video { width: 100%; border-radius: 10px; }
+.grid-gap { margin-bottom: 20px; }
 
-/* GRID GAP */
-.grid-gap {
-  margin-bottom: 20px;
+.btn-custom {
+  background: white;
+  color: #1e3c72;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 25px;
 }
-
 </style>
 </head>
 
@@ -80,8 +49,8 @@ img, video {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Event-Based Object and Fine-Grained Action Recognition</h1>
-  <p>Neuromorphic Vision • Real-Time GUI • Temporal Learning</p>
+  <h1>Event-Based Object & Fine-Grained Action Recognition</h1>
+  <p>Neuromorphic Vision • Temporal Learning • Interactive GUI</p>
 
   <p>
     Sanaullah*, Han Byung-Kil, Thorsten Jungeblut,<br>
@@ -98,9 +67,35 @@ img, video {
   <div class="card-custom">
     <h3 class="section-title">Abstract</h3>
     <p>
-      We present a unified framework for event-based object and fine-grained object-action classification using neuromorphic vision data.
-      The method integrates spike-based representations, hierarchical modeling, and ensemble learning to capture temporal dynamics.
-      An interactive GUI enables real-time visualization of model predictions and confidence evolution.
+      We propose a unified framework for event-based object and fine-grained object-action recognition using neuromorphic vision data.
+      The approach combines spike-based representations, hierarchical modeling, and ensemble learning to capture temporal dynamics.
+      A real-time GUI enables step-wise visualization of prediction confidence, providing interpretability for temporal decision-making.
+    </p>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section container">
+  <h3 class="section-title text-center">Method Overview</h3>
+
+  <div class="card-custom">
+    <p>
+      Event streams are converted into fixed-length spike-count tensors and processed using a hierarchical classification pipeline.
+      The system first predicts object categories and then refines predictions into fine-grained object-action classes.
+      Ensemble learning improves robustness, while polarity-aware encoding enhances motion representation.
+    </p>
+  </div>
+</section>
+
+<!-- DATASET -->
+<section class="section container">
+  <h3 class="section-title text-center">Dataset</h3>
+
+  <div class="card-custom">
+    <p>
+      Experiments are conducted on event-based manipulation datasets including E-MAD and a larger UGR dataset.
+      These datasets contain human-object interaction sequences recorded using event cameras,
+      enabling evaluation of both object-level and fine-grained action recognition.
     </p>
   </div>
 </section>
@@ -112,22 +107,22 @@ img, video {
   <div class="row text-center">
     <div class="col-md-4 grid-gap">
       <div class="card-custom">
-        <h5>Hierarchical Learning</h5>
-        <p>Meta-ensemble for fine-grained classification</p>
+        <h5>Hierarchical Modeling</h5>
+        <p>Improved fine-grained classification via structured learning</p>
       </div>
     </div>
 
     <div class="col-md-4 grid-gap">
       <div class="card-custom">
         <h5>Polarity Encoding</h5>
-        <p>Improved representation of event streams</p>
+        <p>Enhanced motion representation using event polarity</p>
       </div>
     </div>
 
     <div class="col-md-4 grid-gap">
       <div class="card-custom">
-        <h5>Real-Time GUI</h5>
-        <p>Temporal confidence visualization</p>
+        <h5>Interactive GUI</h5>
+        <p>Real-time visualization of temporal predictions</p>
       </div>
     </div>
   </div>
@@ -138,7 +133,8 @@ img, video {
   <h3 class="section-title text-center">Interactive GUI</h3>
 
   <p class="text-center">
-    Visualize model predictions evolving over time.
+    The GUI enables step-by-step replay of event sequences, showing how model confidence evolves over time.
+    It helps analyze temporal decision-making, detect ambiguity, and understand prediction behavior.
   </p>
 
   <div class="row">
@@ -150,34 +146,36 @@ img, video {
 
 <!-- VIDEOS -->
 <section class="section container">
-  <h3 class="section-title text-center">Demo Videos</h3>
+  <h3 class="section-title text-center">Object-wise Demonstrations</h3>
+
+  <p class="text-center">Each video shows real-time prediction evolution using the GUI.</p>
 
   <div class="row">
     <div class="col-md-4 grid-gap">
       <video controls><source src="videos/cup.mp4"></video>
-      <p class="text-center">Cup</p>
+      <p class="text-center"><b>Cup</b></p>
     </div>
 
     <div class="col-md-4 grid-gap">
       <video controls><source src="videos/spoon.mp4"></video>
-      <p class="text-center">Spoon</p>
+      <p class="text-center"><b>Spoon</b></p>
     </div>
 
     <div class="col-md-4 grid-gap">
       <video controls><source src="videos/knife.mp4"></video>
-      <p class="text-center">Knife</p>
+      <p class="text-center"><b>Knife</b></p>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-md-6 grid-gap">
       <video controls><source src="videos/sponge.mp4"></video>
-      <p class="text-center">Sponge</p>
+      <p class="text-center"><b>Sponge</b></p>
     </div>
 
     <div class="col-md-6 grid-gap">
       <video controls><source src="videos/stone.mp4"></video>
-      <p class="text-center">Stone</p>
+      <p class="text-center"><b>Stone</b></p>
     </div>
   </div>
 </section>
@@ -187,10 +185,23 @@ img, video {
   <div class="card-custom">
     <h3 class="section-title">Results Summary</h3>
     <ul>
-      <li>Improved performance with larger datasets</li>
+      <li>Dataset scale significantly improves generalization</li>
       <li>Hierarchical models outperform flat classifiers</li>
-      <li>Polarity-split encoding yields best results</li>
+      <li>Polarity-split encoding yields best performance</li>
     </ul>
+  </div>
+</section>
+
+<!-- RUN -->
+<section class="section container">
+  <div class="card-custom">
+    <h3 class="section-title">How to Run</h3>
+<pre>
+git clone https://github.com/YOUR_REPO
+cd project
+pip install -r requirements.txt
+python main.py
+</pre>
   </div>
 </section>
 
@@ -198,18 +209,17 @@ img, video {
 <section class="section container">
   <div class="card-custom">
     <h3 class="section-title">Citation</h3>
-    <pre>
-@article{yourpaper2026,
+<pre>
+@article{event2026,
   title={Event-Based Object and Fine-Grained Action Recognition},
   author={Sanaullah et al.},
   journal={Neurocomputing},
   year={2026}
 }
-    </pre>
+</pre>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="text-center p-4">
   <hr>
   <p>© 2026 Neuromorphic Vision Project</p>
