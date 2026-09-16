@@ -148,26 +148,31 @@ This work builds a small, manually implemented convolutional spiking network, us
 <h2>Three Approaches, One Task</h2>
 <p class="section-sub">Fine-grained, 25-class object-action classification, starting from a common flat classifier</p>
 
-<div class="approach-grid">
-<div class="approach-card">
-<div class="step">Baseline</div>
-<h4>Flat classifier</h4>
-<p>An eight-model ensemble trained directly on all 25 object-action combinations, using the combined-polarity event-count representation.</p>
-<div class="acc">86.62%</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0">
+
+<div style="background:#fff;border:1px solid #e8e6e0;border-radius:8px;padding:20px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7a7a7a;margin-bottom:6px;letter-spacing:.02em">Baseline</div>
+<h4 style="font-family:'Source Serif 4',Georgia,serif;font-size:16px;font-weight:600;margin-bottom:8px;color:#1a1a1a">Flat classifier</h4>
+<p style="font-size:13.5px;color:#4a4a4a;line-height:1.6">An eight-model ensemble trained directly on all 25 object-action combinations, using the combined-polarity event-count representation. Serves as the reference point for the two approaches below.</p>
+<div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:#1a1a1a;margin-top:12px">86.62%</div>
 </div>
-<div class="approach-card">
-<div class="step">Task decomposition</div>
-<h4>Hierarchical + meta-ensemble</h4>
-<p>Object classification, then per-object action classification, combined with the flat classifier via a probabilistic meta-ensemble. Validated across ten independent held-out splits.</p>
-<div class="acc">88.13% &plusmn; 0.96%</div>
+
+<div style="background:#fff;border:1px solid #e8e6e0;border-radius:8px;padding:20px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7a7a7a;margin-bottom:6px;letter-spacing:.02em">Task decomposition</div>
+<h4 style="font-family:'Source Serif 4',Georgia,serif;font-size:16px;font-weight:600;margin-bottom:8px;color:#1a1a1a">Hierarchical + meta-ensemble</h4>
+<p style="font-size:13.5px;color:#4a4a4a;line-height:1.6">Object classification, then per-object action classification, combined with the flat classifier via a probabilistic meta-ensemble. Validated across ten independent held-out splits.</p>
+<div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:#1a1a1a;margin-top:12px">88.13% &plusmn; 0.96%</div>
 </div>
-<div class="approach-card winner">
-<div class="step">Input representation</div>
-<h4>Polarity-split encoding</h4>
-<p>Positive and negative polarity events kept as separate input channels instead of combined into one count, applied to the flat classifier. Statistically validated via paired bootstrap.</p>
-<div class="acc">92.99%</div>
+
+<div style="background:#fff;border:1px solid #e8e6e0;border-radius:8px;padding:20px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7a7a7a;margin-bottom:6px;letter-spacing:.02em">Input representation</div>
+<h4 style="font-family:'Source Serif 4',Georgia,serif;font-size:16px;font-weight:600;margin-bottom:8px;color:#1a1a1a">Polarity-split encoding</h4>
+<p style="font-size:13.5px;color:#4a4a4a;line-height:1.6">Positive and negative polarity events kept as separate input channels instead of combined into one count, applied to the flat classifier. Validated via paired bootstrap resampling.</p>
+<div style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:#1a1a1a;margin-top:12px">92.99%</div>
 </div>
+
 </div>
+</section>
 
 <div class="finding-note">
 The hierarchical decomposition and the polarity-split encoding address two different aspects of the same problem, how the task is structured versus how the input is represented, and were evaluated independently rather than combined. Polarity-split produced the larger, more robust improvement on both object and fine-grained classification; combining both approaches is left for future work.
