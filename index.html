@@ -121,8 +121,9 @@ nav .links a{font-size:11.5px}
 <p class="affiliation">Research Institute of AI Robotics, Korea Institute of Machinery and Materials, Daejeon, South Korea</p>
 <div class="buttons">
 <a href="#" class="btn btn-primary">Paper (PDF)</a>
+<a href="#" class="btn btn-outline">Dataset (Spike-Train)</a>
+<a href="#" class="btn btn-outline">Trained Models</a>
 <a href="#" class="btn btn-outline">Code</a>
-<a href="#results" class="btn btn-outline">Results</a>
 </div>
 </div>
 
@@ -133,7 +134,7 @@ nav .links a{font-size:11.5px}
 <h2>Overview</h2>
 <p class="section-sub">What this work does, and why it matters</p>
 <p class="abstract-text" align="justify">
-Event cameras report brightness changes asynchronously at each pixel, offering microsecond-scale temporal resolution and inherent sparsity well suited to latency-sensitive robotic perception. Spiking neural networks are a natural computational counterpart to this sensing modality, but most existing work on event-based action recognition instead converts event streams into dense, frame-like tensors and applies conventional deep architectures, and training spiking networks from scratch introduces its own undocumented failure modes.
+Event cameras report brightness changes asynchronously at each pixel, offering microsecond-scale temporal resolution and inherent sparsity well suited to latency-sensitive robotic perception [1]. Spiking neural networks are a natural computational counterpart to this sensing modality, but most existing work on event-based action recognition instead converts event streams into dense, frame-like tensors and applies conventional deep architectures, and training spiking networks from scratch introduces its own undocumented failure modes [2].
 </p>
 <br>
 <p class="abstract-text" align="justify">
@@ -177,7 +178,7 @@ The hierarchical decomposition and the polarity-split encoding address two diffe
 
 <section id="results">
 <h2>Main Results</h2>
-<p class="section-sub">Compared against the best published baseline for each task granularity</p>
+<p class="section-sub">Compared against the best published baseline [3,4] for each task granularity</p>
 
 <div class="table-wrap">
 <p class="table-caption">Object and fine-grained classification, combined-polarity representation.</p>
@@ -240,14 +241,19 @@ The hierarchical decomposition and the polarity-split encoding address two diffe
 </table>
 </div>
 
-<img class="arch-fig" src="Images/fig3_bootstrap_forest.png" alt="Bootstrap forest plot">
-<p class="fig-caption">Forest plot of the paired bootstrap comparison. The dashed line marks no difference; both intervals lie entirely to its right.</p>
-
 <h3>Single-Sample Deployment Check</h3>
 <p align="justify">All accuracies above come from batched evaluation. A deployed system processes one sample at a time, so we separately re-ran the polarity-split object ensemble in single-sample mode, drawing 50 random trials per class.</p>
 
-<img class="arch-fig" src="Images/fig6_single_sample.png" alt="Single-sample validation">
-<p class="fig-caption">Single-sample inference (n=50 trials per class) versus full batch-evaluated accuracy. Because the network is deterministic at inference &mdash; no dropout, batch normalization on fixed running statistics &mdash; the two agree closely for every class.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:20px 0;align-items:start">
+<div>
+<img src="Images/fig3_bootstrap_forest.png" alt="Bootstrap forest plot" style="width:100%;border-radius:8px;border:1px solid #e8e6e0;display:block;margin:0">
+<p class="fig-caption" style="margin-top:6px;margin-bottom:0">Forest plot of the paired bootstrap comparison. The dashed line marks no difference; both intervals lie entirely to its right.</p>
+</div>
+<div>
+<img src="Images/fig6_single_sample.png" alt="Single-sample validation" style="width:100%;border-radius:8px;border:1px solid #e8e6e0;display:block;margin:0">
+<p class="fig-caption" style="margin-top:6px;margin-bottom:0">Single-sample inference (n=50 trials per class) versus full batch-evaluated accuracy. Because the network is deterministic at inference &mdash; no dropout, batch normalization on fixed running statistics &mdash; the two agree closely for every class.</p>
+</div>
+</div>
 </section>
 
 <hr class="divider">
@@ -298,12 +304,62 @@ Your browser does not support embedded video.
 
 <hr class="divider">
 
+<div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Dataset Availability</h3>
+          <hr style="margin-top:0px">
+          <p class="text-justify" style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+		  
+			Event-Based Dataset (Original): <a href="https://github.com/DaniDeniz/DavisHandDataset-Events" target="_blank">Download Link</a> <br>
+			<p>Description: This dataset contains raw data captured by event-based cameras, providing high temporal resolution and asynchronous event streams. Suitable for initial experiments and raw data analysis.</p>
+			
+			Spike Train Dataset (Transformed): <a href="https://drive.google.com/file/d/1HSaJXqOdEdPiyT1OBn-XNn-RyHmnFD6y/view?usp=drive_link" target="_blank">Download Link</a> <br>
+			<p>Description: This dataset features the same information transformed into spike train format, optimized for use with SNNs. This format aligns with the time-based processing needs of SNNs and facilitates efficient learning and analysis.</p>
+          </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>References</h3>
+          <hr style="margin-top:0px; font-size: 0.1em; color: #808080;">
+			<p class="references">
+				[1]. Wan, J., Xia, M., Huang, Z., Tian, L., Zheng, X., Chang, V., ... & Wang, H. (2021). Event-based pedestrian detection using dynamic vision sensors. Electronics, 10(8), 888.
+				[2]. Rebecq, Henri, et al. (2019). "High speed and high dynamic range video with an event camera." <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i> 43.6: 1964-1980. 
+        [3]. D. Deniz, C. Fermuller, E. Ros, M. Rodriguez-Alvarez, & F. Barranco. (2023) "Event-based Vision for Early Prediction of Manipulation Actions". <a href="https://arxiv.org/abs/2307.14332" target="_blank">arXiv preprint arXiv:2307.14332</a>.<br>
+				[4]. D. Deniz, E. Ros, C. Fermuller, & F. Barranco. (2023). "When Do Neuromorphic Sensors Outperform Cameras? Learning from Dynamic Features". In <i>2023 57th Annual Conference on Information Sciences and Systems (CISS)</i> (pp. 1-6). IEEE. <br><br>
+			</p>
+      </div>
+    </div>
+</div>
+
+<hr class="divider">
+
 <section>
 <h2>Citation</h2>
 <p class="section-sub">If you find this work useful, please cite our paper</p>
 <div class="bibtex-box" id="bibtex">
 <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-text').textContent)">Copy</button>
-<code id="bibtex-text">@inproceedings{sanaullah2026robust,
+<code id="bibtex-text">@article{snn_manipulation_2026,
+  title={Event-Based Object and Manipulation-Action Recognition with Spiking Neural Networks for Real-Time Robotic Perception},
+  author={Sanaullah, Han Byung-Kil, Thorsten Jungeblut, Alexandra Dmitrienko, and Dong-il Park</p>},
+  journal={Preprint},
+  year={2026}
+}</code>
+</div>
+
+<h3>Related Publication</h3>
+<p align="justify">The event-to-spike-train conversion framework used in this work was introduced separately, with a focus on preserving temporal dynamics for embodied robotics applications:</p>
+<div class="bibtex-box" id="bibtex2">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bibtex-text2').textContent)">Copy</button>
+<code id="bibtex-text2">@inproceedings{sanaullah2026robust,
   title={A Robust Event-to-Spike Conversion Framework Preserving Temporal Dynamics for Spiking Neural Networks in Embodied Robotics},
   author={Sanaullah and Jungeblut, Thorsten and Dmitrienko, Alexandra and Han, Byung-Kil and Park, Dong-Il},
   booktitle={Proceedings of the 27th Engineering Applications of Neural Networks (EANN 2026)},
