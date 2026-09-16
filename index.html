@@ -193,22 +193,32 @@ The hierarchical decomposition and the polarity-split encoding address two diffe
 <h3>Effect of Input Event Representation</h3>
 <p align="justify">Three input encodings were compared under an identical architecture and training procedure: the default combined-polarity event count, a binary event-presence encoding, and the polarity-split encoding.</p>
 
+<div class="img-grid">
+<div>
 <img class="arch-fig" src="Images/fig1_encoding_accuracy.png" alt="Encoding accuracy comparison">
 <p class="fig-caption">Accuracy by input event representation, with 95% bootstrap confidence intervals, for object classification (a) and fine-grained object-action classification (b).</p>
-
-<p align="justify">Binary event-presence encoding has almost no effect on object classification but causes a 27-point collapse on fine-grained classification &mdash; discarding event-count magnitude removes the motion-intensity information needed to tell apart different actions on the same object. Polarity-split improves both tasks, and improves consistently at the individual-model level, not only after ensembling:</p>
-
+</div>
+<div>
 <img class="arch-fig" src="Images/fig2_per_seed_variability.png" alt="Per-seed variability">
 <p class="fig-caption">Per-seed model accuracy, combined-count versus polarity-split, for object classification (a) and fine-grained object-action classification (b). Each point is one of eight independently seeded models; bars show mean &plusmn; one standard deviation.</p>
+</div>
+</div>
+
+<p align="justify">Binary event-presence encoding has almost no effect on object classification but causes a 27-point collapse on fine-grained classification &mdash; discarding event-count magnitude removes the motion-intensity information needed to tell apart different actions on the same object. Polarity-split improves both tasks, and improves consistently at the individual-model level, not only after ensembling.</p>
 
 <h3>Confusion Matrices</h3>
 <p align="justify">The polarity-split ensemble's remaining errors on the fine-grained task are concentrated among different actions performed on the same object, rather than between different objects.</p>
 
+<div class="img-grid">
+<div>
 <img class="arch-fig" src="Images/fig4_confusion_object.png" alt="Object confusion matrix">
 <p class="fig-caption">Confusion matrix, object classification, polarity-split ensemble, full 628-sample test set.</p>
-
+</div>
+<div>
 <img class="arch-fig" src="Images/fig5_confusion_action.png" alt="Fine-grained confusion matrix">
 <p class="fig-caption">Confusion matrix, fine-grained object-action classification, polarity-split ensemble, full 628-sample test set.</p>
+</div>
+</div>
 </section>
 
 <hr class="divider">
